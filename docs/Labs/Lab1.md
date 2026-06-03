@@ -354,7 +354,7 @@ When you use aggregate functions like `SUM`, `AVG`, and `COUNT` on a table while
 ---
 
 ## Assignment: Simulate The Unrepeatable Read Problem
-!!! attention "Due Date on 14/6/2025"
+!!! attention "Due Date on 23/06/2026 11:59 PM"
 
 * Read page 752 on the primary book (FUNDAMENTALS OF Database Systems)
 * <span style="color: red;"> See the requirement about the structures of the lab [**here**](general_instructions.md)</span>
@@ -371,3 +371,8 @@ When you use aggregate functions like `SUM`, `AVG`, and `COUNT` on a table while
 4. A screenshot showing the result of the second transaction after execution.
 
 5. A paragraph discussing what happened, and how it demonstrates the Unrepeatable Read issue.
+
+
+Submit your lab report in **PDF format** via email to **[advanceddb2026@gmail.com](mailto:advanceddb2026@gmail.com)**. 
+
+**Email Subject Format:** `Lab 0 - Student ID`
