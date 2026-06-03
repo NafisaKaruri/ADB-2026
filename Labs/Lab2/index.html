@@ -1,0 +1,1199 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of lab assignments for the ADB 2025 course.">
+      
+      
+        <meta name="author" content="Amira Nasreldeein, Aseel, Salma">
+      
+      
+      
+        <link rel="prev" href="../Lab1/">
+      
+      
+        <link rel="next" href="../Lab3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../image/fmsi.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Lab 2 - Advanced Database Labs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#concurrency-control-techniques" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Advanced Database Labs" class="md-header__button md-logo" aria-label="Advanced Database Labs" data-md-component="logo">
+      
+  <img src="../../image/fmsi.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Advanced Database Labs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../general_instructions/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  General instructions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab0/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab0
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 4
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Advanced Database Labs" class="md-nav__button md-logo" aria-label="Advanced Database Labs" data-md-component="logo">
+      
+  <img src="../../image/fmsi.png" alt="logo">
+
+    </a>
+    Advanced Database Labs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general_instructions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General instructions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 2
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#innodb-storage-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InnoDB Storage Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="InnoDB Storage Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-do-we-use-innodb-in-this-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Do We Use InnoDB in This Course?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-check-if-innodb-enabled-on-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to check if InnoDB enabled on MySQL?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#innodb-locking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InnoDB Locking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isolation-level-on-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolation Level on MySQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#innodb-supported-concurrency-control-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InnoDB-Supported Concurrency Control Algorithms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="InnoDB-Supported Concurrency Control Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-two-phase-locking-2pl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Two-Phase Locking (2PL)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Two-Phase Locking (2PL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-observing-how-innodb-uses-strict-2pl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Observing How InnoDB Uses Strict 2PL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-multiversion-concurrency-control-mvcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Multiversion Concurrency Control (MVCC)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Multiversion Concurrency Control (MVCC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-mvcc-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How MVCC Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-discussion-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Discussion Points
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-simulate-deadlock-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assignment (Simulate Deadlock Scenario)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assignment (Simulate Deadlock Scenario)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-assign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to assign:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="concurrency-control-techniques">Concurrency Control Techniques</h1>
+<p><strong>Objective:</strong></p>
+<ul>
+<li>To understand concurrency control techniques based on locking mechanisms.</li>
+<li>To explore concurrency control techniques based on the multiversion (MVCC) concept.</li>
+<li>To understand how MySQL (InnoDB) handles concurrent transactions effectively.</li>
+</ul>
+<hr />
+<h2 id="innodb-storage-engine">InnoDB Storage Engine</h2>
+<p>A storage engine is a software that is used by a database management system to create, read, and update data from a database. <strong>InnoDB</strong> is a general purpose <strong>transactional storage engine</strong> for MySQL(since version 5.5.5), designed for high reliability and performance.</p>
+<h3 id="why-do-we-use-innodb-in-this-course">Why Do We Use InnoDB in This Course?</h3>
+<ul>
+<li>Its DML operations follow the <strong>ACID</strong> model, supporting transactions with <strong>commit</strong>, <strong>rollback</strong>, and <strong>crash recovery</strong>, which help protect user data.</li>
+<li>It allows us to observe how <strong>concurrency control algorithms</strong> work within a DBMS, including <strong>strict Two-Phase Locking (2PL)</strong> and <strong>Multi-Version Concurrency Control (MVCC)</strong>.</li>
+<li>It enables us to examine <strong>recovery mechanisms</strong>, such as <strong>write-ahead logging (WAL)</strong>, in action.</li>
+</ul>
+<h3 id="how-to-check-if-innodb-enabled-on-mysql">How to check if InnoDB enabled on MySQL?</h3>
+<p>To verify whether InnoDB is enabled and set as the default storage engine, execute the following query:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SHOW</span><span class="w"> </span><span class="n">ENGINES</span><span class="p">;</span>
+</code></pre></div>
+Look for the InnoDB row in the result. It should show <strong>DEFAULT</strong> in the Support column, indicating that InnoDB is the default storage engine.</p>
+<figure>
+<img alt="InnoDB" src="../images/InnoDB.png" width="800" />
+</figure>
+<h3 id="innodb-locking">InnoDB Locking</h3>
+<ul>
+<li>
+<p><strong>Shared and Exclusive Locks</strong>: InnoDB implements standard row-level locking, which includes two types of locks: shared (S) locks and exclusive (X) locks.</p>
+</li>
+<li>
+<p><strong>Intention Locks</strong> InnoDB supports multiple granularity locking, allowing row-level locks and table-level locks to coexist. It introduces two types of intention locks: intention shared (IS) and intention exclusive (IX). For details, refer to the lock compatibility matrix on page 803 of the book.</p>
+</li>
+</ul>
+<hr />
+<h2 id="isolation-level-on-mysql">Isolation Level on MySQL</h2>
+<p>Isolation level <sup>instruct</sup> the database engine on how to manage multiple transactions being performed concurrently, and what violations are possible.</p>
+<ol>
+<li>
+<p><code>READ UNCOMMITTED</code> is the lowest isolation level. It allows transactions to read the most recent version of a row, even if the change has not been committed by other transactions. This leads to the dirty read anomaly, as explained in <a href="../Lab1/">Lab 1</a>.</p>
+</li>
+<li>
+<p><code>READ COMMITTED</code>  is one step above <code>READ UNCOMMITTED</code> and prevents dirty reads. In this mode, each <code>SELECT</code>operation retrieves the latest committed version of the row at the time of the query. However, this can result in non-repeatable reads.</p>
+</li>
+<li>
+<p><code>REPEATABLE READ</code> is the default isolation level in MySQL. It is one step above <code>READ COMMITTED</code> and prevents non-repeatable reads. In this mode, shared locks are placed on all rows read during the transaction and are held until the transaction ends. This prevents other transactions from modifying any of the data that was read.</p>
+</li>
+<li>
+<p><code>SERIALIZABLE</code>  is the highest isolation level. It prevents all types of concurrency anomalies. However, it is often impractical due to the extensive locking it requires, which increases the risk of deadlocks and can significantly reduce performance.</p>
+</li>
+</ol>
+<p><strong>Syntax for Setting the Isolation Level in MySQL</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="w"> </span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="p">[</span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="p">];</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">InnoDB use <code>REPEATABLE READ</code> as the defualt isolation level.</p>
+</div>
+<h2 id="innodb-supported-concurrency-control-algorithms">InnoDB-Supported Concurrency Control Algorithms</h2>
+<p>The InnoDB transaction model combines the strengths of Multi-Version Concurrency Control (MVCC) and strict Two-Phase Locking (2PL) to balance high concurrency with strong consistency guarantees. InnoDB uses MVCC to enable non-blocking reads, allowing multiple transactions to read data simultaneously without locking. At the same time, it applies strict 2PL for write operations to ensure serializability.</p>
+<div class="admonition note">
+<p class="admonition-title">When we refer to write operations, we mean SQL statements such as <code>INSERT</code>, <code>UPDATE</code> and <code>DELETE</code></p>
+</div>
+<p><strong>InnoDB uses two primary concurrency control mechanisms:</strong></p>
+<h3 id="1-two-phase-locking-2pl">1. Two-Phase Locking (2PL)</h3>
+<p>InnoDB uses <strong>strict two-phase locking</strong> to ensure serializability. This means a transaction acquires locks during its execution phase but does not release any exclusive (write) locks until it either commits or rolls back</p>
+<h4 id="example-observing-how-innodb-uses-strict-2pl">Example: Observing How InnoDB Uses Strict 2PL</h4>
+<p>Imagine Ahmed's family and Mohamed's family both trying to book seats for a summer vacation trip to Turkey. They access the reservation system at the same time. Ahmed wants to reserve five seats, while Mohamed wants to reserve four seats. Behind the scenes, InnoDB ensures data consistency by using strict two-phase locking (2PL) — meaning when Ahmed's transaction starts updating the available seat count, it locks the row exclusively. Mohamed's transaction, attempting to update the same row simultaneously, must wait until Ahmed's transaction commits or rolls back. This prevents overlapping writes and guarantees serializability.</p>
+<p><strong>Now we will simulate the example using MySQL and observe the InnoDB storage engine:</strong></p>
+<ol>
+<li>
+<p>Create the Database and Table
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">ReservationDB</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">USE</span><span class="w"> </span><span class="n">ReservationDB</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">seats</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">Id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">FlyName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">       </span><span class="c1">-- Flight Name</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">Available_seats</span><span class="w"> </span><span class="nb">INT</span><span class="w">                  </span><span class="c1">-- Available seats on the flight</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">-- Insert some sample data</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">seats</span><span class="w"> </span><span class="p">(</span><span class="n">FlyName</span><span class="p">,</span><span class="w"> </span><span class="n">Available_seats</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">(</span><span class="ss">&quot;Turkey&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">(</span><span class="ss">&quot;Emaraty&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>In Session 1 (Ahmed's Transaction): Connect using the previous connection from <a href="../Lab0/"><strong>Lab0</strong></a> (named local), and open a new SQL query tab</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">ReservationDB</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">SET</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="w"> </span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="k">REPEATABLE</span><span class="w"> </span><span class="k">READ</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">-- Ahmed tries to reserve 5 seats</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">seats</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">available_seats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available_seats</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1">-- Optional: Use SLEEP() to pause Ahmed&#39;s transaction. </span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1">-- This allows you to observe the lock behavior by giving Mohamed&#39;s session time to run concurrently.</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1">-- If you prefer not to use SLEEP(), you can simply delay committing Ahmed&#39;s transaction </span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1">-- and manually run Mohamed&#39;s session before issuing the COMMIT.</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="k">DO</span><span class="w"> </span><span class="n">SLEEP</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+</li>
+<li>
+<p>In Session 2 (Mohamed's Transaction): Go to the Home tab and open the <code>local</code> connection again. (This step simulates a second session connected to the database.) Then, open a new SQL query tab to continue.
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">-- Mohamed&#39;s Transaction</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">USE</span><span class="w"> </span><span class="n">ReservationDB</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">SET</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="w"> </span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="k">REPEATABLE</span><span class="w"> </span><span class="k">READ</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">-- Mohamed tries to reserve 4 seats</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">seats</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">available_seats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available_seats</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">-- If Ahmed&#39;s transaction hasn&#39;t committed yet, this query will be BLOCKED.</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1">-- It waits for the exclusive lock to be released.</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>In Session 3
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">SHOW</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="n">INNODB</span><span class="w"> </span><span class="n">STATUS</span><span class="p">;</span>
+</code></pre></div>
+    <code>SHOW ENGINE INNODB STATUS</code> provides a detailed snapshot of the InnoDB storage engine's internal state. This output—often referred to as the InnoDB Monitor—includes several sections such as transaction and lock information, I/O activity, buffer pool usage, deadlock detection, and more.</p>
+</li>
+<li>
+<p>Run Session 1, Session 2, and Session 3 simultaneously. You will observe that the <code>UPDATE</code> operation in  Session 2 keeps running (waiting) until Session 1 commits. Meanwhile, execute Session 3 during this wait period to view the InnoDB status and observe how Session 2 is blocked, waiting for Session 1 to release the lock.</p>
+</li>
+<li>
+<p>Right-click on the Status column in the InnoDB status output and select <strong>Copy Row (with names, tab separated)</strong>, then paste it into any text editor (e.g., Notepad) to examine the output in detail. In the snapshot below, you can see evidence that Transaction 2 is waiting for Transaction 1 to commit—this clearly demonstrates how InnoDB enforces strict two-phase locking (2PL).
+    <figure markdown="span">
+        <img alt="InnoDB" src="../images/InnoDB-Output.png" width="800" />
+    </figure>
+    <strong>Transaction 2</strong>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>---TRANSACTION 4939, ACTIVE 3 sec starting index read
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>mysql tables in use 1, locked 1
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>LOCK WAIT 2 lock struct(s), heap size 1128, 1 row lock(s)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>MySQL thread id 81, OS thread handle 14892, query id 3521 localhost 127.0.0.1 root updating
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>UPDATE seats SET available_seats = available_seats - 4 WHERE id = 1
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>------- TRX HAS BEEN WAITING 3 SEC FOR THIS LOCK TO BE GRANTED:
+</code></pre></div>
+    <strong>Transaction 1</strong>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>---TRANSACTION 4938, ACTIVE 5 sec
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>2 lock struct(s), heap size 1128, 1 row lock(s), undo log entries 1
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>MySQL thread id 77, OS thread handle 14828, query id 3515 localhost 127.0.0.1 root User sleep
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>DO SLEEP(20)
+</code></pre></div>
+    Once the sleep duration completes, Transaction 1 commits and releases its exclusive lock, allowing Transaction 2 to acquire the lock and proceed. If you query the <code>available_seats</code>, you will find it equals 1, indicating that both transactions executed without any anomalies, as demonstrated in <a href="../Lab1/"><strong>Lab 1</strong></a>.</p>
+</li>
+<li>
+<p>Conculation on this example we observe that how InnoDB follow the strict 2PL on updating operation. you can repeat this example by using <code>READ COMMITTED</code>, <code>SERIALIZABLE</code> Isolation level and observe what happen.</p>
+</li>
+</ol>
+<hr />
+<h3 id="2-multiversion-concurrency-control-mvcc">2. Multiversion Concurrency Control (MVCC)</h3>
+<h4 id="definition">Definition</h4>
+<p>MVCC is a concurrency control technique used by many modern databases (like PostgreSQL, MySQL InnoDB, and Oracle) to allow multiple transactions to access the same data simultaneously without locking.</p>
+<h4 id="how-mvcc-works">How MVCC Works</h4>
+<ul>
+<li>Every time a transaction reads data, it sees a snapshot of the database at the time the transaction started.</li>
+<li>When data is updated, the database creates a new version of the row instead of overwriting the old one.</li>
+<li>Other transactions can continue reading the old version until they commit or refresh.</li>
+</ul>
+<h4 id="objective">Objective</h4>
+<p>Understand how MVCC in InnoDB allows multiple read operations to happen at the same time, without locking, and while updates may be happening in the background.</p>
+<hr />
+<p><strong>Step 1: Create the Table</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">salary</span><span class="w"> </span><span class="nb">INT</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
+</code></pre></div>
+<strong>Step 2: Insert Initial Data</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">5000</span><span class="p">),</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">6000</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>Step 3: Start Two Sessions</strong></p>
+<p>We will simulate <strong>Session A (Reader)</strong> and <strong>Session B (Updater)</strong>. You can do this using two different database connections (e.g., two tabs in MySQL Workbench).</p>
+<p><strong>Session A (Reader)</strong> 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</code></pre></div>
+Observation:
+All rows are returning back, <code>WHERE id = 2</code> returns <code>6000</code>.</p>
+<p><strong>Session B (Updater) (In another tab)</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9000</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div></p>
+<p><strong>Back to Session A (Reader Again)</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</code></pre></div>
+Observation:
+Now it shows <code>6000</code> for <code>id=2</code>.</p>
+<p>Transaction A does not see the update from Transaction B because MVCC provides a consistent snapshot of the data at the moment A starts.</p>
+<p>MVCC keeps multiple versions of rows, so Transaction A reads the version that existed before B's update. Even if B commits, A continues to see the old data until it finishes, ensuring repeatable reads without blocking.</p>
+<hr />
+<h3 id="key-discussion-points">Key Discussion Points</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Observation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MVCC</strong></td>
+<td>Keeps a snapshot per transaction (using undo logs).</td>
+</tr>
+<tr>
+<td><strong>Multiple Reads</strong></td>
+<td>Readers don’t block writers, and writers don’t block readers.</td>
+</tr>
+<tr>
+<td><strong>Isolation</strong></td>
+<td>REPEATABLE READ is default in InnoDB – keeps results stable within a transaction.</td>
+</tr>
+<tr>
+<td><strong>Consistency</strong></td>
+<td>Session A always sees the same data until it commits.</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Improves concurrency: multiple users can safely read and write.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="summary">Summary</h3>
+<p>This simple example shows how MVCC enables multiple users to read data at the same time, even if another transaction is updating the same rows. Each reader gets a consistent snapshot — a powerful feature of InnoDB.</p>
+<hr />
+<h2 id="advanced-work">Advanced work</h2>
+<p>You can clone this <a href="https://github.com/mikeleo03/Database-Concurrency-Control/tree/main">repostory</a> to explore the internal details of concurrency control simulations.</p>
+<h2 id="assignment-simulate-deadlock-scenario">Assignment (Simulate Deadlock Scenario)</h2>
+<div class="admonition attention">
+<p class="admonition-title">Due Date on 28/6/2025</p>
+</div>
+<ul>
+<li>Read pages 789–792 from the primary textbook: Fundamentals of Database Systems.</li>
+<li><span style="color: red;"> Please review the general lab structure requirements <a href="../general_instructions/">here</a> </span></li>
+<li><span style="color: red;">You must use MySQL</span>, as this lab focuses specifically on the InnoDB storage engine.</li>
+</ul>
+<h3 id="what-to-assign">What to assign:</h3>
+<ol>
+<li>
+<p>A brief paragraph describing the real-world situation you are simulating to create a deadlock.</p>
+</li>
+<li>
+<p>A screenshot of the table structure (after creation) that you will use in the simulation.</p>
+</li>
+<li>
+<p>A screenshot showing the result of the first session after execution.</p>
+</li>
+<li>
+<p>A screenshot showing the result of the second session after execution.</p>
+</li>
+<li>
+<p>While both Transaction 1 and Transaction 2 are still running and waiting on each other, open a third session and execute the following command: <code>SHOW ENGINE INNODB STATUS;</code>.</p>
+</li>
+<li>
+<p>A snippet of the <code>SHOW ENGINE INNODB STATUS</code> output showing that Transaction 1 is waiting for a lock held by Transaction 2.</p>
+</li>
+<li>
+<p>A snippet showing that Transaction 2 is waiting for a lock held by Transaction 1.</p>
+</li>
+<li>
+<p>After the deadlock occurs and InnoDB resolves it automatically, re-run third session. </p>
+</li>
+<li>
+<p>A snippet from the InnoDB Monitor output showing that a deadlock has been detected and resolved. to do this you should re-run step 5 agin and observe the <code>LATEST DETECTED DEADLOCK</code>.</p>
+</li>
+<li>
+<p>A brief paragraph discussing what happened and how InnoDB detects deadlock <a href="https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlock-detection.html">Read this</a>.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 Amira – Aseel – Salma
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "content.tooltips", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.expand", "content.code.fold", "content.code.line_numbers", "content.code.highlight", "content.code.language", "content.code.title", "content.code.wrap"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../js/open_links.js"></script>
+      
+    
+  </body>
+</html>

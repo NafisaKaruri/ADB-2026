@@ -1,0 +1,1266 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of lab assignments for the ADB 2025 course.">
+      
+      
+        <meta name="author" content="Amira Nasreldeein, Aseel, Salma">
+      
+      
+      
+        <link rel="prev" href="../Lab0/">
+      
+      
+        <link rel="next" href="../Lab2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../image/fmsi.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Lab 1 - Advanced Database Labs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transaction-management-and-sql-implementation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Advanced Database Labs" class="md-header__button md-logo" aria-label="Advanced Database Labs" data-md-component="logo">
+      
+  <img src="../../image/fmsi.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Advanced Database Labs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../general_instructions/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  General instructions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab0/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab0
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 4
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Advanced Database Labs" class="md-nav__button md-logo" aria-label="Advanced Database Labs" data-md-component="logo">
+      
+  <img src="../../image/fmsi.png" alt="logo">
+
+    </a>
+    Advanced Database Labs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general_instructions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General instructions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-sql-transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding SQL Transactions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding SQL Transactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transaction-control-commands-savepoint-rollback-and-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction Control Commands – SAVEPOINT, ROLLBACK, and COMMIT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transaction Control Commands – SAVEPOINT, ROLLBACK, and COMMIT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BEGIN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#savepoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SAVEPOINT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROLLBACK
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ROLLBACK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rollback-to-a-savepoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback to a Savepoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-entire-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback Entire Transaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMMIT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transaction-properties-and-how-sql-supports-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction properties and how SQL supports them
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-concurrency-control-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Concurrency Control is Needed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Concurrency Control is Needed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-lost-update-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Lost update problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-the-temporary-update-or-dirty-read-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Temporary Update (or Dirty Read) Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-the-incorrect-summary-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The Incorrect Summary Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transaction-t2-session-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction T2 (Session 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-simulate-the-unrepeatable-read-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assignment: Simulate The Unrepeatable Read Problem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assignment: Simulate The Unrepeatable Read Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-assign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to assign:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="transaction-management-and-sql-implementation">Transaction Management and SQL Implementation</h1>
+<p><strong>Objective:</strong></p>
+<ul>
+<li>Understand the ACID properties.</li>
+<li>Implement SQL transactions.</li>
+<li>Understand transaction control.</li>
+</ul>
+<h2 id="understanding-sql-transactions">Understanding SQL Transactions</h2>
+<p><strong>A Transaction</strong> is a sequence of <ins>read</ins> and <ins>write</ins> operations performed as a single logical unit of work.</p>
+<p><strong>SQL Server operates in the following transaction modes:</strong></p>
+<ol>
+<li>Autocommit transactions: Each individual statement is a transaction.</li>
+<li>Explicit transactions: Each transaction is explicitly started with the <code>BEGIN TRANSACTION</code> statement and explicitly ended with a <code>COMMIT</code> or <code>ROLLBACK</code> statement <strong>(which is concerned in this course)</strong>.</li>
+<li>Implicit transactions: A new transaction is implicitly started when the prior transaction completes, but each transaction is explicitly completed with a <code>COMMIT</code> or <code>ROLLBACK</code> statement.</li>
+</ol>
+<hr />
+<h3 id="transaction-control-commands-savepoint-rollback-and-commit">Transaction Control Commands – <code>SAVEPOINT</code>, <code>ROLLBACK</code>, and <code>COMMIT</code></h3>
+<p><strong>Objective:</strong> Understand how to manage multi-step database transactions using SQL transaction control commands.</p>
+<hr />
+<h4 id="begin">BEGIN</h4>
+<p>Start a new transaction:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">-- or</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h4 id="savepoint">SAVEPOINT</h4>
+<p>Set a point you can roll back to later:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">department</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HR&#39;</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">SAVEPOINT</span><span class="w"> </span><span class="n">sp1</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">department</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Finance&#39;</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">SAVEPOINT</span><span class="w"> </span><span class="n">sp2</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">department</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Charlie&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;IT&#39;</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>At this point, we have added 3 employees and created two savepoints: <code>sp1</code> and <code>sp2</code>.</p>
+</blockquote>
+<hr />
+<h4 id="rollback">ROLLBACK</h4>
+<p>Undo part or all of a transaction.</p>
+<h5 id="rollback-to-a-savepoint">Rollback to a Savepoint</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">sp2</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>This undoes only the insertion of <strong>Charlie</strong>, keeping <strong>Alice</strong> and <strong>Bob</strong>.</p>
+</blockquote>
+<h5 id="rollback-entire-transaction">Rollback Entire Transaction</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">ROLLBACK</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>This undoes <strong>all</strong> changes made in the transaction.</p>
+</blockquote>
+<hr />
+<h4 id="commit">COMMIT</h4>
+<p>Make all changes permanent:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>After committing, the changes cannot be undone.</p>
+</blockquote>
+<hr />
+<h4 id="summary">Summary</h4>
+<ul>
+<li>Use <code>SAVEPOINT</code> to mark logical checkpoints.</li>
+<li>Use <code>ROLLBACK</code> to undo mistakes.</li>
+<li>Use <code>COMMIT</code> to make sure the database saves your work.</li>
+</ul>
+<p>This gives you control and safety when working with important or complex data operations.</p>
+<hr />
+<h3 id="transaction-properties-and-how-sql-supports-them">Transaction properties and how SQL supports them</h3>
+<p><strong>Transaction properties (ACID):</strong></p>
+<ol>
+<li><strong>A - Atomicity:</strong> All actions in transaction happen, or none happen. “<em>All or nothing…</em>”</li>
+<li><strong>C - Consistency:</strong> If each transaction is consistent and the database starts in a consistent state, it ends in a consistent state. “<em>It looks correct to me…</em>”</li>
+<li><strong>I - Isolation:</strong> Execution of one transaction is isolated from other transactions. “<em>All by myself…</em>”</li>
+<li><strong>D - Durability:</strong> Once a transaction commits, its effects are permanent. “<em>I will survive…</em>”</li>
+</ol>
+<p><strong>How SQL Supports Each Property?</strong></p>
+<table>
+<thead>
+<tr>
+<th>properties</th>
+<th>SQL Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atomicity</td>
+<td>Use <code>START TRANSACTION</code>, followed by <code>COMMIT</code> or <code>ROLLBACK</code></td>
+</tr>
+<tr>
+<td>Consistency</td>
+<td>Enforced through constraints (e.g., <code>PRIMARY KEY</code>, <code>FOREIGN KEY</code>, <code>CHECK</code>)</td>
+</tr>
+<tr>
+<td>Isolation</td>
+<td>Set using <code>SET TRANSACTION ISOLATION LEVEL</code></td>
+</tr>
+<tr>
+<td>Durability</td>
+<td>Ensured by <code>COMMIT</code> and Logging mechanisms (e.g., write-ahead logs, redo logs)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="why-concurrency-control-is-needed">Why Concurrency Control is Needed</h3>
+<p>Several problems can occur when concurrent transactions execute <ins>without proper control</ins>, especially due to conflicting operations such as <strong>Read-Write</strong>, <strong>Write-Read</strong>, and <strong>Write-Write</strong> conflicts.</p>
+<p><strong>Here is an illustrated problem with SQL transactions to simulate the problem:</strong></p>
+<h4 id="1-lost-update-problem">1. Lost update problem</h4>
+<p>This problem occurs when two or more transactions read and update the same data item concurrently without being aware of each other's changes. As a result, the last update overwrites the previous ones, leading to the loss of some updates and causing data inconsistency.</p>
+<p><strong>Real-World Scenario</strong></p>
+<p>Two users (sessions) try to withdraw money from the same account at the same time:</p>
+<ul>
+<li><strong>User A</strong> reads the balance = 100, decides to withdraw 30 → wants to update it to 70.</li>
+<li><strong>User B</strong> also reads the balance = 100, decides to withdraw 50 → wants to update it to 50.</li>
+<li>If both updates happen without proper control, one will overwrite the other, leads to lost updates and incorrect final balance.</li>
+</ul>
+<p><strong>Example of the Scenario in SQL:</strong></p>
+<p>To simulate a Lost Update in MySQL using two concurrent sessions:</p>
+<ol>
+<li>
+<p>Create a Table:
+    Create any Database and create a table named <code>accounts</code> and insert sample data into it:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">balance</span><span class="w"> </span><span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">balance</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Ali&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="p">);</span>
+</code></pre></div>
+<img alt="Lost Update Example" src="../images/lost%20update%201.png" width="400" /></p>
+</li>
+<li>
+<p>Session A (user A):
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+    <img alt="Lost Update Example" src="../images/lost%20update%202.png" width="400" /></p>
+<p>Here, user A reads the balance (100) and calculates the new balance: 100 - 30 = 70, then updates the record without commit. </p>
+</li>
+<li>
+<p>Session B (user B, in another window):</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<img alt="Lost Update Example" src="../images/lost%20update%203.png" width="400" />
+Here, user B reads the balance (100) and calculates the new balance: 100 - 50 = 50, then  updates the record and commit. </p>
+<div class="admonition note">
+<p class="admonition-title">to open two sessions in MySQL Workbench; Go to File → New Query Tab to open Session A, Repeat to open another tab (Session B). Each tab is a separate session — you can run SQL commands independently in each</p>
+</div>
+</li>
+<li>
+<p>Back to session A:
+    Now return back to session A again and commit the session:
+    <img alt="Lost Update Example" src="../images/lost%20update%204.png" width="400" /></p>
+</li>
+<li>
+<p>Check the final balance:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="p">;</span>
+</code></pre></div>
+<img alt="Lost Update Example" src="../images/lost%20update%205.png" width="400" /></p>
+<p>Here we will see the balance becomes 70, and user B’s update (which should make the balance 50) is lost.</p>
+</li>
+<li>
+<p>Conclusion:</p>
+<ul>
+<li>Both transactions read the same initial value (100).</li>
+<li>Each transaction updates the data without being aware of the other's changes.</li>
+<li>The last transaction to commit determines the final value, possibly erasing the other's update.</li>
+<li>Even though no errors appear, data integrity is lost. This demonstrates the importance of proper concurrency control in database systems.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="2-the-temporary-update-or-dirty-read-problem">2. The Temporary Update (or Dirty Read) Problem</h4>
+<p>This occurs when one transaction <ins>reads</ins> data that has been <ins>written</ins> by another transaction that hasn’t committed yet. If the first transaction is later <strong>rolled back</strong>, the second transaction ends up working with invalid or temporary data — a dirty read.</p>
+<p><strong>Example Scenario (Simulated):</strong></p>
+<p>In an online electronics store:</p>
+<ol>
+<li>
+<p>Ahmed initiates a purchase of 200 laptops. A transaction begins and temporarily reduces the stock quantity to 0, but the transaction is not yet committed.</p>
+</li>
+<li>
+<p>Meanwhile, Mohamed checks the available stock and sees 0 laptops — based on User A’s uncommitted change.</p>
+</li>
+<li>
+<p>Then, Ahmed cancels the purchase, and the transaction is rolled back. The stock returns to its original quantity (e.g., 200).</p>
+</li>
+<li>
+<p>However, Mohamed made a decision based on incorrect (temporary) data — the system gave them a dirty read.</p>
+</li>
+</ol>
+<p><strong>SQL Transaction for the scienario:</strong></p>
+<ol>
+<li>Create the <code>Products</code> table to simulate the scenario
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">-- Create ProductDB Database</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">ProductDB</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">USE</span><span class="w"> </span><span class="n">ProductDB</span><span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1">-- Create Products table</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Products</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="n">Id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="n">ProductName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="n">Quantity</span><span class="w"> </span><span class="nb">INT</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">);</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c1">-- Insert Sample data</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">Products</span><span class="w"> </span><span class="p">(</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="n">ProductName</span><span class="p">,</span><span class="w"> </span><span class="n">Quantity</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mobile&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">),</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Tablet&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">),</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Laptop&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+</code></pre></div></li>
+<li>In Session 1: Connect using the previous connection from <a href="../Lab0/"><strong>Lab0</strong></a> (named local), and open a new SQL query tab
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">ProductDB</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">-- Transaction 1: Simulate purchase</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="c1">-- Pay 200 units from product with ID = 3 (assumed to be a laptop)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">Products</span><span class="w"> </span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">Quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Quantity</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">200</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="c1">-- Simulate waiting for payment confirmation</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="k">DO</span><span class="w"> </span><span class="n">SLEEP</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="c1">-- Payment failed — rollback the transaction</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="k">ROLLBACK</span><span class="p">;</span>
+</code></pre></div>
+    <strong>We use SLEEP to simulate concurrent transactions. Note that <code>DO SLEEP(15)</code> works only in MySQL 8.0.29 or later</strong></li>
+<li>Go to the Home tab and open the <code>local</code> connection again. (This step simulates a second session connected to the database.) Then, open a new SQL query tab to continue.
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">ProductDB</span><span class="p">;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1">-- Transaction 2: Retrieve Laptop record</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">SET</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="w"> </span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="k">READ</span><span class="w"> </span><span class="k">UNCOMMITTED</span><span class="p">;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">Products</span><span class="w"> </span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Id</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div></li>
+<li>
+<p>In Session 1: Run the transaction and wait</p>
+<p><img alt="Windows Setting" src="../images/transaction%201-before%20rollback.png" width="400" /></p>
+</li>
+<li>
+<p>While Session 1 is still sleeping: Run Session 2</p>
+<p><img alt="Windows Setting" src="../images/transaction%202.png" width="400" /></p>
+</li>
+<li>
+<p>After Session 1 completes and rolls back</p>
+<p><img alt="Windows Setting" src="../images/transaction%201-after%20rollback.png" width="400" /></p>
+</li>
+<li>
+<p>Conclusion: Session 2 was able to see the updated quantity (0 laptops) before Session 1 rolled back. This leads to inconsistent or misleading data, which is why isolation levels like `READ COMMITTED or REPEATABLE READ are important in real-world applications.</p>
+</li>
+</ol>
+<hr />
+<h4 id="3-the-incorrect-summary-problem">3. The Incorrect Summary Problem</h4>
+<p><strong>Problem Statement</strong></p>
+<p>When you use aggregate functions like <code>SUM</code>, <code>AVG</code>, and <code>COUNT</code> on a table while other transactions are modifying the data, the result may be <strong>inconsistent</strong>. This is because some rows might be updated <strong>before</strong> the function reads them, and others <strong>after</strong>.</p>
+<ol>
+<li>
+<p>Create the Table</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">balance</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">);</span>
+</code></pre></div>
+</li>
+<li>
+<p>Insert Initial Data
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">balance</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">.</span><span class="mi">00</span><span class="p">),</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">750</span><span class="p">.</span><span class="mi">00</span><span class="p">),</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1200</span><span class="p">.</span><span class="mi">00</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Simulate Concurrent Transactions</p>
+<p><strong>Transaction T1 (Session 1)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1">-- not committed</span>
+</code></pre></div>
+<h4 id="transaction-t2-session-2">Transaction T2 (Session 2)</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">balance</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="p">;</span>
+</code></pre></div>
+At this point, SUM() still uses the old value for id = 1 because the update in Session 1 (T1) hasn’t been committed.</p>
+<p><strong>SUM(balance) = 2450.00</strong></p>
+</li>
+<li>
+<p>Add COMMIT to T1 and Re-run</p>
+<p><strong>Transaction T1 (Session 1)</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<strong>Transaction T2 (Session 2)</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">balance</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="p">;</span>
+</code></pre></div>
+Now, SUM() uses the new value for id = 1 because the update in T1 has been committed.</p>
+<p><strong>SUM(balance) = 2550.00</strong></p>
+</li>
+<li>
+<p>Conclusion:</p>
+<ul>
+<li>If T1 is not committed, T2 sees old values.</li>
+<li>If T1 is committed, T2 sees updated values.</li>
+<li>Proper transaction management ensures consistent query results.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="assignment-simulate-the-unrepeatable-read-problem">Assignment: Simulate The Unrepeatable Read Problem</h2>
+<div class="admonition attention">
+<p class="admonition-title">Due Date on 14/6/2025</p>
+</div>
+<ul>
+<li>Read page 752 on the primary book (FUNDAMENTALS OF Database Systems)</li>
+<li><span style="color: red;"> See the requirement about the structures of the lab <a href="../general_instructions/"><strong>here</strong></a></span></li>
+<li>You can use any SQL editor (Online or Local), but be cautious — <strong>transaction statements may vary slightly between different DBMSs</strong>, and the use of <code>DO SLEEP</code> depends on the specific database engine. For example, <code>DO SLEEP()</code> is supported in MySQL 8.0.29+, while in other systems or older versions, you may need to use <code>SELECT SLEEP()</code> or an alternative approach.</li>
+</ul>
+<h3 id="what-to-assign">What to assign:</h3>
+<ol>
+<li>
+<p>A paragraph describing the scenario you will use to simulate the Unrepeatable Read problem.</p>
+</li>
+<li>
+<p>A screenshot of the table you created for the simulation.</p>
+</li>
+<li>
+<p>A screenshot showing the result of the first transaction after execution.</p>
+</li>
+<li>
+<p>A screenshot showing the result of the second transaction after execution.</p>
+</li>
+<li>
+<p>A paragraph discussing what happened, and how it demonstrates the Unrepeatable Read issue.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 Amira – Aseel – Salma
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "content.tooltips", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.expand", "content.code.fold", "content.code.line_numbers", "content.code.highlight", "content.code.language", "content.code.title", "content.code.wrap"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../js/open_links.js"></script>
+      
+    
+  </body>
+</html>

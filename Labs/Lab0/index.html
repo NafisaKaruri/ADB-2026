@@ -1,0 +1,1054 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of lab assignments for the ADB 2025 course.">
+      
+      
+        <meta name="author" content="Amira Nasreldeein, Aseel, Salma">
+      
+      
+      
+        <link rel="prev" href="../general_instructions/">
+      
+      
+        <link rel="next" href="../Lab1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../image/fmsi.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Lab0 - Advanced Database Labs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setup-environment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Advanced Database Labs" class="md-header__button md-logo" aria-label="Advanced Database Labs" data-md-component="logo">
+      
+  <img src="../../image/fmsi.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Advanced Database Labs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab0
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../general_instructions/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  General instructions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab0
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 4
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Advanced Database Labs" class="md-nav__button md-logo" aria-label="Advanced Database Labs" data-md-component="logo">
+      
+  <img src="../../image/fmsi.png" alt="logo">
+
+    </a>
+    Advanced Database Labs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general_instructions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General instructions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab0
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-install-microsoft-visual-c-2019-redistributable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites: Install Microsoft Visual C++ 2019 Redistributable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-we-will-use-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why we will use MySQL?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-mysql-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing MySQL (Offline)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-after-install-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What after install MySQL?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What after install MySQL?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-do-we-mean-by-connection-and-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What do we mean by Connection and Port?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-programming-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python programming language
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python programming language">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-and-install-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download and Install Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-and-install-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download and Install VS Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alteranative-way-to-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alteranative way to practice:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-install-mysql-create-a-database-and-query-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assignment: Install MySQL, Create a Database, and Query It
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assignment: Install MySQL, Create a Database, and Query It">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-assign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to assign:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="setup-environment">Setup environment</h1>
+<p><strong>Objective:</strong></p>
+<ul>
+<li>To set up <strong>MySQL Database Management System</strong></li>
+<li>To connect to <strong>MySQL</strong> server</li>
+<li>To set up <strong>Python Programming Langauge</strong></li>
+</ul>
+<p><strong>Software:</strong></p>
+<ul>
+<li>MySQL installer (offline version)</li>
+<li>Visual Studio code (VS code)</li>
+</ul>
+<h2 id="prerequisites-install-microsoft-visual-c-2019-redistributable"><strong>Prerequisites:</strong> Install Microsoft Visual C++ 2019 Redistributable</h2>
+<p><span style="color: red;"> If you already have Microsoft Visual C++ 2019 Redistributable installed, you can skip this step and continue with the lab.</span></p>
+<ol>
+<li>Go to the official Microsoft page.
+<a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022">Download VC++ Redistributables</a></li>
+<li>Download the file based on your system:<ul>
+<li>for 64-bit <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe">VC_redist.x64.exe</a></li>
+<li>for 32-bit <a href="https://aka.ms/vs/17/release/vc_redist.x86.exe">VC_redist.x86.exe</a></li>
+</ul>
+</li>
+<li>Open the downloaded file and check on <strong>I agree to the license terms and conditions</strong>.
+    <figure markdown="span">
+    <img alt="Install VC" src="../images/visual_c%2B%2B_install.png" width="400" />
+    </figure></li>
+<li>After installation, <strong>restart your PC</strong>.
+    <figure markdown="span">
+    <img alt="Restart PC" src="../images/visual_c%2B%2B_restart.png" width="400" />
+    </figure></li>
+</ol>
+<h2 id="mysql">MySQL</h2>
+<p>MySQL is an open-source relational database management system (RDBMS) that uses SQL to create, manage, and query data.</p>
+<h3 id="why-we-will-use-mysql">Why we will use MySQL?</h3>
+<ol>
+<li>Support <strong>ACID transaction properites</strong>, essential for understanding transaction management</li>
+<li>Uses the <strong>InnoDB</strong> transactional storage engine, which supports <strong>concurrency control</strong> and <strong>recovery mechanisms</strong></li>
+<li>Flexible and easy-to-use</li>
+</ol>
+<h3 id="installing-mysql-offline">Installing MySQL (Offline)</h3>
+<ol>
+<li>Go to the official <a href="https://dev.mysql.com/downloads/installer/">MySQL Downloads Page</a></li>
+<li>Download the <strong>Windows (x86, 32-bit), MSI Installer</strong> (Offline version ~353.7M)
+    <figure markdown="span">
+    <img alt="MySQL installer" src="../images/MySQL_installer.png" width="400" />
+    </figure></li>
+<li>After open the Installer Choose <strong>Custom</strong>
+    <figure markdown="span">
+    <img alt="MySQL installer" src="../images/install-mysql-1.png" width="400" />
+    </figure></li>
+<li>Select <strong>MySQL Servers</strong> and <strong>MySQL Workbench</strong>
+    <figure markdown="span">
+    <img alt="MySQL installer" src="../images/install-mysql-2.png" width="400" />
+    </figure></li>
+<li>Proceed through the installation wizard</li>
+<li>Use the default port (3306)
+    <figure markdown="span">
+    <img alt="MySQL installer" src="../images/install-mysql-5.png" width="400" />
+    </figure></li>
+<li>Choose the Authentication Method as below
+    <figure markdown="span">
+    <img alt="MySQL installer" src="../images/install-mysql-6.png" width="400" />
+    </figure></li>
+<li>Create a root password</li>
+<li>Choose Windows Service as below
+    <figure markdown="span">
+    <img alt="MySQL installer" src="../images/install-mysql-8.png" width="400" />
+    </figure></li>
+<li>Proceed through the installation wizard untill finish</li>
+</ol>
+<h3 id="what-after-install-mysql">What after install MySQL?</h3>
+<ol>
+<li>After installing MySQL, connect to the <strong>MySQL Server</strong>. by clicking the <code>+</code> symbol next to MySQL Connections
+    <figure markdown="span">
+    <img alt="MySQL" src="../images/Connect_1.png" width="400" />
+    </figure></li>
+<li>In the dialog box, enter a <strong>Connection name</strong>, e.g.,<code>Local</code>
+    <figure markdown="span">
+    <img alt="MySQL" src="../images/Connect_2.png" width="400" />
+    </figure></li>
+<li>Click <strong>Test Connection</strong> and enter your MySQL root password to verify the connection
+    <figure markdown="span">
+    <img alt="MySQL" src="../images/Connect_3.png" width="400" />
+    </figure></li>
+<li>After successfully connecting to the MySQL server, create a new database called <code>StudentDB</code>:<ul>
+<li>Open <code>local</code> connection</li>
+<li>Click <strong>Create new SQL</strong> from the top-left corner</li>
+<li>Write SQL commands to create the <code>StudentDB</code> database, a <code>Students</code> table, and insert sample data.</li>
+<li>Execute the Script using Execute button ⚡
+<figure markdown="span">
+<img alt="MySQL" src="../images/Connect_4.png" width="400" />
+</figure>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/*</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm">Name: Amira Naser Aldeein</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cm">Index: 01x-xxx</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cm">Department: e.g., CS</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cm">*/</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">StudentDB</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">USE</span><span class="w"> </span><span class="n">StudentDB</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Students</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">StudentID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="n">FullName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">Gender</span><span class="w"> </span><span class="n">ENUM</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="n">BirthDate</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">Department</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">GPA</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="n">CreatedAt</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">);</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="c1">-- Sample data</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">Students</span><span class="w"> </span><span class="p">(</span><span class="n">FullName</span><span class="p">,</span><span class="w"> </span><span class="n">Gender</span><span class="p">,</span><span class="w"> </span><span class="n">BirthDate</span><span class="p">,</span><span class="w"> </span><span class="n">Department</span><span class="p">,</span><span class="w"> </span><span class="n">GPA</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">(</span><span class="s1">&#39;Ali Ahmed&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2000-05-12&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Computer Science&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">45</span><span class="p">),</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="p">(</span><span class="s1">&#39;Sara Hassan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2001-07-18&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Information Systems&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">78</span><span class="p">),</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="p">(</span><span class="s1">&#39;Omar Musa&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2002-03-25&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mathematics&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">90</span><span class="p">);</span>
+</code></pre></div></li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Once you create the database, you will see it listed under the Schemas section on the left panel</p>
+</div>
+</li>
+<li>Now you can run SQL queries on your new database
+    <figure markdown="span">
+    <img alt="MySQL" src="../images/Connect_5.png" width="400" />
+    </figure>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">StudentDB</span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Students</span><span class="p">;</span>
+</code></pre></div></li>
+</ol>
+<h4 id="what-do-we-mean-by-connection-and-port">What do we mean by Connection and Port?</h4>
+<p>A database connection is a communication link between a client application (e.g., MySQL Workbench) and the MySQL server. When an application (the client) needs to perform operations such as creating databases, running queries, or retrieving data, it establishes a connection to communicate with the server.
+The port is a communication endpoint on your machine. By default, MySQL uses port <code>3306</code> to listen for incoming client requests.
+In short, a connection is essential to allow your client tools or applications to interact with the MySQL server, run queries, manage data, and exchange information.</p>
+<h2 id="python-programming-language">Python programming language</h2>
+<p>We will use the <strong>Python programming language</strong> to simulate the following:
+    * Concurrency control algorithms
+    * Database recovery techniques</p>
+<h3 id="download-and-install-python">Download and Install Python</h3>
+<ol>
+<li>Go to the <strong><a href="https://www.python.org/downloads/">Python</a></strong> official website</li>
+<li>Download the latest stable version</li>
+<li>Open the installer and check <ul>
+<li>Add Python to PATH</li>
+</ul>
+</li>
+</ol>
+<h3 id="download-and-install-vs-code">Download and Install VS Code</h3>
+<ol>
+<li>Visit the website <strong><a href="https://code.visualstudio.com/Download">VS code</a></strong> Click on <code>Windows</code> to download VS code for Windows, as shown below<br>
+    <figure markdown="span">
+    <img alt="Windows Setting" src="../images/VScode-1.png" width="400" />
+    </figure></li>
+<li>After the download finished open the <code>VSCodeUserSetup</code> executable file, when it open select <code>I accept the agreement</code> then click on <code>Next</code><br>
+    <figure markdown="span">
+    <img alt="Windows Setting" src="../images/VScode-2.png" width="400" />
+    </figure></li>
+<li>Select all the option as seen below<br>
+    <figure markdown="span">
+    <img alt="Windows Setting" src="../images/VScode-3.png" width="400" />
+    </figure></li>
+<li>Finally we are ready to install the VS code, click on <code>install</code> and wait untail the setup finish</li>
+<li>On the Vs code, on the left-hand side, click on <code>extension</code> then in the search bar, write <code>Python</code> select <code>Python microsoft</code> and click on <code>Install</code> as shown below<br>
+    <figure markdown="span">
+    <img alt="Python extention" src="../images/python-3.png" width="400" />
+    </figure></li>
+</ol>
+<h2 id="alteranative-way-to-practice">Alteranative way to practice:</h2>
+<ul>
+<li>Online Postgred server <strong><a href="https://supabase.com/">supabase</a></strong></li>
+<li>Online Python Editer <strong><a href="https://www.programiz.com/python-programming/online-compiler/">programiz</a></strong></li>
+</ul>
+<h2 id="assignment-install-mysql-create-a-database-and-query-it">Assignment: Install MySQL, Create a Database, and Query It</h2>
+<div class="admonition attention">
+<p class="admonition-title">Due Date on 24/5/2025</p>
+</div>
+<p><span style="color: red;"> See the requirement about the structures of the lab <strong><a href="../general_instructions/">here</a></strong></span></p>
+<ol>
+<li>Download and Install MySQL</li>
+<li>Connect to the server</li>
+<li>Create a New Database</li>
+<li>Create a Table</li>
+<li>Insert Data</li>
+<li>Query the Data
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">DatabaseName</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">TableName</span><span class="p">;</span>
+</code></pre></div></li>
+</ol>
+<h3 id="what-to-assign">What to assign:</h3>
+<p>Take Screenshots:</p>
+<ol>
+<li>SQL code (on MySQL)</li>
+<li>The output of your query</li>
+<li>Put it all on one document</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 Amira – Aseel – Salma
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "content.tooltips", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.expand", "content.code.fold", "content.code.line_numbers", "content.code.highlight", "content.code.language", "content.code.title", "content.code.wrap"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../js/open_links.js"></script>
+      
+    
+  </body>
+</html>

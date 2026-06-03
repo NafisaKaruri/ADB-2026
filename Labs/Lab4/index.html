@@ -1,0 +1,1171 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of lab assignments for the ADB 2025 course.">
+      
+      
+        <meta name="author" content="Amira Nasreldeein, Aseel, Salma">
+      
+      
+      
+        <link rel="prev" href="../Lab3/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../image/fmsi.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Lab 4 - Advanced Database Labs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#database-security-measures" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Advanced Database Labs" class="md-header__button md-logo" aria-label="Advanced Database Labs" data-md-component="logo">
+      
+  <img src="../../image/fmsi.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Advanced Database Labs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../general_instructions/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  General instructions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab0/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab0
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Lab3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab 4
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Advanced Database Labs" class="md-nav__button md-logo" aria-label="Advanced Database Labs" data-md-component="logo">
+      
+  <img src="../../image/fmsi.png" alt="logo">
+
+    </a>
+    Advanced Database Labs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general_instructions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General instructions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 4
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Content:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-security-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Security Principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Security Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-implementation-of-database-security-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Implementation of Database Security Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-database-and-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create Database and Tables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-user-roles-and-assign-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create User Roles and Assign Permissions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-roles-and-assign-to-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create Roles and Assign to User
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Create Roles and Assign to User">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Instructions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-grant-vs-role-based-access-control-rbac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Grant vs Role-Based Access Control (RBAC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-column-level-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Column-Level Encryption
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Column-Level Encryption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-encrypting-student-ssns-in-the-previously-created-students-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Encrypting Student SSNs in the previously created students table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-simulate-sql-injection-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Simulate SQL Injection &amp; Prevention
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Simulate SQL Injection &amp; Prevention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-using-the-admin-root-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example (Using the admin “Root” editor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulate-sql-injection-unsafe-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulate SQL Injection (Unsafe Query)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevent-sql-injection-safe-approach-prepared-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevent SQL Injection- Safe Approach (Prepared Statements)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="database-security-measures">Database Security Measures</h1>
+<h2 id="objective"><strong>Objective:</strong></h2>
+<ul>
+<li>
+<p>Understand  security principles, including authentication, authorization, and access controls.</p>
+</li>
+<li>
+<p>Create different user roles and assign permissions to database objects.</p>
+</li>
+<li>
+<p>Set up role-based access (RBAC) to control who can access specific database objects.</p>
+</li>
+<li>
+<p>Apply basic encryption to protect sensitive data stored in the database.</p>
+</li>
+<li>
+<p>Simulate SQL injection attacks and explain prevention methods such as prepared statements.</p>
+</li>
+</ul>
+<h2 id="lab-content"><strong>Lab Content:</strong></h2>
+<ul>
+<li>Database Security Principles<ol>
+<li>Authentication</li>
+<li>Authorization</li>
+</ol>
+</li>
+<li>Practical Implementation of Database Security Concepts<ol>
+<li>Create Database and Tables</li>
+<li>Create User Roles and Assign Permissions</li>
+<li>Create Roles and Assign to User</li>
+<li>Column-Level Encryption </li>
+<li>Simulate SQL Injection &amp; Prevention</li>
+</ol>
+</li>
+<li>Assignment Instructions</li>
+</ul>
+<hr />
+<h2 id="database-security-principles">Database Security Principles</h2>
+<h3 id="1-authentication">1. Authentication</h3>
+<p><strong>Definition:</strong><br />
+Verifying a user's identity before granting database access.</p>
+<p><strong>Examples:</strong><br />
+- Username/password login validation<br />
+- Multi-factor authentication (MFA)  </p>
+<p><strong>Purpose:</strong><br />
+Ensures only verified users can interact with the database system.</p>
+<hr />
+<h3 id="2-authorization">2. Authorization</h3>
+<p><strong>Definition:</strong><br />
+Determines what actions authenticated users are allowed to perform, such as read, write, or modify.</p>
+<p><strong>Examples:</strong><br />
+- Granting <code>SELECT</code> privileges on specific tables
+- Restricting <code>DROP</code>/<code>ALTER</code> commands to DBAs  </p>
+<p><strong>Purpose:</strong><br />
+Prevents unauthorized data access or modifications.</p>
+<hr />
+<p>Often, a user must log in to a system using some form of authentication. After authentication, access control mechanisms determine which operations 
+the user can or cannot perform by comparing their identity to an access control list (ACL). While authorization policies define what an individual 
+or group is allowed to access, access controls are the mechanisms used to enforce these policies."</p>
+<hr />
+<h2 id="practical-implementation-of-database-security-concepts">Practical Implementation of Database Security Concepts</h2>
+<h2 id="1-create-database-and-tables">1. Create Database and Tables</h2>
+<ul>
+<li>Create a DB (<code>university_db</code>)</li>
+<li>Create Tables: <code>students</code>, <code>courses</code></li>
+<li>Insert data</li>
+</ul>
+<p><img alt="Create Database Screenshot" src="../images/Create-DB.png" /></p>
+<hr />
+<p><img alt="Create Database Screenshot" src="../images/insert-data.png" /></p>
+<hr />
+<h2 id="2-create-user-roles-and-assign-permissions">2. Create User Roles and Assign Permissions</h2>
+<p>Create user roles with specific permissions to control access based on each user's responsibilities. For example, allowing actions like 
+data viewing <code>Select</code> while preventing modifications <code>Update</code> and <code>Insert</code>. This strengthens security, minimizes errors, and improves operational control.</p>
+<p>Here we will create a read-only user named <code>data_viewer</code> and grant access to the tables <code>students</code> and <code>courses</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- Create a new user</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;data_viewer&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;viewerpass123&#39;</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">-- Grant SELECT permission directly on specific tables</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">university_db</span><span class="p">.</span><span class="n">students</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;analyst&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">university_db</span><span class="p">.</span><span class="n">courses</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;analyst&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h2 id="3-create-roles-and-assign-to-user">3. Create Roles and Assign to User</h2>
+<p>Instead of assigning permissions to each user individually, we create a role (e.g., <code>readonly</code>) with specific privileges and assign it to multiple users.<br />
+This is easier to manage, especially for large teams, because roles group privileges into reusable sets.</p>
+<p>Here, we’ll create a role named <code>readonly</code> and assign it to the <code>data_viewer</code> user we created earlier.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- Create a read-only role</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="s1">&#39;readonly&#39;</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">-- Grant SELECT permissions to the role</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">university_db</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;readonly&#39;</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">-- Assign role to user</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">GRANT</span><span class="w"> </span><span class="s1">&#39;readonly&#39;</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;data_viewer&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Expected Output:</strong></p>
+<p>The user can only view data; they cannot insert, update, or delete.</p>
+<hr />
+<h3 id="test-instructions"><strong>Test Instructions</strong></h3>
+<ol>
+<li>
+<p>Log in as <code>data_viewer</code>.</p>
+</li>
+<li>
+<p>Click the <strong>( + )</strong> icon on the welcome screen to <strong>Add a New Connection</strong>.
+    <img alt="Create Database Screenshot" src="../images/New-Connection.png" /></p>
+</li>
+<li>Fill out the connection details and click <strong>Test Connection</strong>.
+   <img alt="Create Database Screenshot" src="../images/Test-Connection.png" /></li>
+<li>Once the successful connection message appears, click <strong>OK</strong> to proceed.
+   <img alt="Create Database Screenshot" src="../images/successful-connection.png" /></li>
+<li>Run the Following Code in the data viewer editor.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- Activate the readonly role</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">SET</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="s1">&#39;readonly&#39;</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">-- Select the database</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">USE</span><span class="w"> </span><span class="n">university_db</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">--  This should work (SELECT permission granted)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">students</span><span class="p">;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">--  This should fail (no INSERT permission for the students table)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Test User&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test@example.com&#39;</span><span class="p">);</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1">--  This should fail (no UPDATE permission for the teacher table)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">teachers</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">90000</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></li>
+</ol>
+<hr />
+<h3 id="direct-grant-vs-role-based-access-control-rbac">Direct Grant vs Role-Based Access Control (RBAC)</h3>
+<p>Direct Grant refers to assigning permissions directly to individual users on a specific database object (<code>GRANT SELECT ON students TO 'data_viewer'</code>).
+While this approach works well for small systems, it becomes difficult to manage as the number of users increases, often leading to inconsistent or 
+redundant privilege assignments. In contrast, Role-Based Access Control (RBAC) provides a more scalable and organized method by assigning permissions 
+to roles rather than to users directly. Users are then granted roles based on their responsibilities. (e.g.,  <code>GRANT SELECT ON students TO 'readonly';
+GRANT 'readonly' TO 'data_viewer';</code>) This makes it easier to maintain consistent access policies, simplifies permission updates, and aligns with the
+principle of least privilege.</p>
+<hr />
+<h2 id="4-column-level-encryption">4. Column-Level Encryption</h2>
+<p>Column-level encryption is a database security technique used to protect sensitive data stored in specific columns of a table allows you to encrypt sensitive data, 
+such as (Social Security Numbers, passwords, or medical records) at the column level within a table. In MySQL, Functions like AES_ENCRYPT() and AES_DECRYPT() are 
+commonly used to perform encryption and decryption, ensuring that even if someone gains access to the database, the data remains unreadable without the decryption key</p>
+<ul>
+<li><code>AES_ENCRYPT(data, key)</code> → encrypts data  </li>
+<li><code>AES_DECRYPT(data, key)</code> → decrypts encrypted data  </li>
+</ul>
+<p>Encrypted data is stored as binary (e.g., <code>VARBINARY</code>), and both encryption &amp; decryption must use the same key.</p>
+<hr />
+<h3 id="example-encrypting-student-ssns-in-the-previously-created-students-table">Example: Encrypting Student SSNs in the previously created <code>students</code> table</h3>
+<p><strong>1. Insert encrypted data into the students table</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">ssn</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="s1">&#39;Mazen&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="s1">&#39;mazen@student.edu&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">AES_ENCRYPT</span><span class="p">(</span><span class="s1">&#39;123-45-6789&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;secret_key&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">);</span>
+</code></pre></div></p>
+<p>The <code>secret_key</code> is the encryption key used for encrypting sensitive data. You must use the <strong>same key</strong> to decrypt the data later.</p>
+<p><strong>2. Select and Decrypt Data</strong></p>
+<p>The following SQL query selects the <code>name</code> and <code>email</code> columns and decrypts the <code>ssn</code> (social security number) column using the AES encryption key <code>secret_key</code>:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">AES_DECRYPT</span><span class="p">(</span><span class="n">ssn</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;secret_key&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">decrypted_ssn</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">students</span><span class="p">;</span>
+</code></pre></div>
+<strong>Note:</strong> If the wrong key is used, <code>decrypted_ssn</code> will return <code>NULL</code>.</p>
+<hr />
+<h2 id="5-simulate-sql-injection-prevention">5. Simulate SQL Injection &amp; Prevention</h2>
+<p>SQL injection is a common attack where an attacker inserts malicious SQL code into input fields to manipulate queries. This section demonstrates an unsafe query and
+how to prevent it using the prepared statements technique.</p>
+<h3 id="example-using-the-admin-root-editor">Example (Using the admin “Root” editor)</h3>
+<h3 id="simulate-sql-injection-unsafe-query">Simulate SQL Injection (Unsafe Query)</h3>
+<p>This example will demonstrate how malicious input like <code>'' OR '1'='1'</code> can trick a query into returning all rows, even if the condition should match only one row.</p>
+<p><strong>1. Simulate unsafe user input</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">user_input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;&#39; OR &#39;1&#39;=&#39;1&quot;</span><span class="p">;</span>
+</code></pre></div>
+<strong>2. Dynamically build an unsafe SQL query</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="ss">&quot;SELECT * FROM students WHERE name = &#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">user_input</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;&#39;&quot;</span><span class="p">);</span>
+</code></pre></div>
+<strong>3. Prepare and execute the query</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">@</span><span class="n">query</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">EXECUTE</span><span class="w"> </span><span class="n">stmt</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">DEALLOCATE</span><span class="w"> </span><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="p">;</span>
+</code></pre></div></p>
+<p><strong>Effect:</strong> Returns all users due to the injected</p>
+<p><img alt="Create Database Screenshot" src="../images/SQL-injection.png" /></p>
+<hr />
+<h3 id="prevent-sql-injection-safe-approach-prepared-statements">Prevent SQL Injection- Safe Approach (Prepared Statements)</h3>
+<p>Prepared statements separate SQL code from user input. Instead of embedding user input directly into a SQL query —which can be exploited by attackers— prepared statements use 
+placeholders (e.g., ?) for input values. These are known as parameters. An SQL statement template is created and sent to the database with these placeholders, while the actual
+data is supplied later. For example: <code>INSERT INTO MyGuests VALUES (?, ?, ?)</code> In this query, the values are not directly inserted into the SQL string; instead, they are safely 
+passed and bound at execution time. This ensures that user input is treated strictly as data, not executable code. </p>
+<p>The process involves two key steps: preparing the statement and then executing it, and here are the steps to follow.</p>
+<p><strong>Step 1:</strong> Prepare a safe query with a placeholder (Tells MySQL to prepare an SQL query in advance with a placeholder <code>?</code> for user input, which guarantees the query structure 
+is fixed and cannot be changed by user input.)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;SELECT * FROM students WHERE name = ?&#39;</span><span class="p">;</span>
+</code></pre></div>
+<strong>Step 2:</strong> Define the user input
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">name_input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Sara&quot;</span><span class="p">;</span>
+</code></pre></div></p>
+<p><strong>Step 3:</strong> Execute the statement safely using bound input ( Runs the query and plugs in the value stored in @name_input, which blocks any attempt to inject SQL.)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">EXECUTE</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="o">@</span><span class="n">name_input</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">DEALLOCATE</span><span class="w"> </span><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="p">;</span>
+</code></pre></div></p>
+<p><strong>Expected Result:</strong>  Returns only user ‘Sara’ without risk of injection.</p>
+<hr />
+<p><strong>Try</strong> modifying the input to include something malicious, like <code>' OR '1'='1</code>. You will notice that MySQL treats it as a <code>string</code>, not as part of the <code>SQL logic</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;SELECT * FROM students WHERE name = ?&#39;</span><span class="p">;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">name_input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;&#39; OR &#39;1&#39;=&#39;1&quot;</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">EXECUTE</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="o">@</span><span class="n">name_input</span><span class="p">;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">EXECUTE</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="o">@</span><span class="n">name_input</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Expected Result:</strong> No row will return.</p>
+<p><img alt="Create Database Screenshot" src="../images/Safe-Approach.png" /></p>
+<hr />
+<h1 id="assignment-4">Assignment 4</h1>
+<h1 id="what-to-assign">What to assign:</h1>
+<h3 id="1-create-users-and-privilege-assignments"><strong>1. Create users and privilege assignments:</strong></h3>
+<ul>
+<li>One user with <strong>read-only access</strong> to the entire database. [Direct Grant]</li>
+<li>One user with <strong>read, insert and Update</strong> permissions, but <strong>no delete</strong>. [Role-Based Access Control: A data-entry role]</li>
+<li>
+<p>One user with access to <strong>only specific columns</strong> (e.g., can view names but <strong>not emails or IDs</strong>). [Direct Grant]</p>
+</li>
+<li>
+<p><strong>Screenshot Requirements:</strong></p>
+</li>
+<li>User and Role creation commands and privilege assignment.</li>
+<li>Evidence of successful and failed attempts to access or modify tables or columns.</li>
+</ul>
+<h3 id="2-encrypt-a-sensitive-column-eg-national-id"><strong>2. Encrypt a sensitive column (e.g., national ID):</strong></h3>
+<h4 id="show-how">Show how:</h4>
+<ul>
+<li>Data looks when encrypted.</li>
+<li>Data can be safely decrypted.</li>
+</ul>
+<h4 id="screenshot-requirements"><strong>Screenshot Requirements:</strong></h4>
+<ul>
+<li>Encrypted data insertion.</li>
+<li>Decryption query and its output.</li>
+<li>View comparing encrypted binary data vs readable decrypted results.</li>
+</ul>
+<h3 id="3-sql-injection-methods"><strong>3. SQL Injection Methods:</strong></h3>
+<h4 id="report"><strong>Report:</strong></h4>
+<ul>
+<li>Brief explanation (1-2 paragraphs) of what SQL injection is and why preventing it is important.</li>
+<li>Common prevention methods (Prepared statements, Input sanitization, etc.) </li>
+</ul>
+<hr />
+<h2 id="what-to-submit">What to Submit</h2>
+<h4 id="a-pdf-document-including">A <strong>PDF document</strong> including:</h4>
+<ul>
+<li>Screenshots for each task, with a caption under each screenshot explaining what it shows.</li>
+<li>A (1-2 paragraphs) report on SQL injection (as described above).</li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Due Date on 29/7/2025</p>
+</div>
+<ul>
+<li><span style="color: red;"> Please review the general lab structure requirements <a href="../general_instructions/">here</a> </span></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 Amira – Aseel – Salma
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "content.tooltips", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.expand", "content.code.fold", "content.code.line_numbers", "content.code.highlight", "content.code.language", "content.code.title", "content.code.wrap"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../js/open_links.js"></script>
+      
+    
+  </body>
+</html>
