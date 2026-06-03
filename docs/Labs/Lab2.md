@@ -41,7 +41,7 @@ Look for the InnoDB row in the result. It should show **DEFAULT** in the Support
 
 Isolation level ^instruct^ the database engine on how to manage multiple transactions being performed concurrently, and what violations are possible.
 
-1. `READ UNCOMMITTED` is the lowest isolation level. It allows transactions to read the most recent version of a row, even if the change has not been committed by other transactions. This leads to the dirty read anomaly, as explained in [Lab 1](docs/Labs/Lab1.md).
+1. `READ UNCOMMITTED` is the lowest isolation level. It allows transactions to read the most recent version of a row, even if the change has not been committed by other transactions. This leads to the dirty read anomaly, as explained in [Lab 1](./Lab1.md).
 
 2. `READ COMMITTED`  is one step above `READ UNCOMMITTED` and prevents dirty reads. In this mode, each `SELECT `operation retrieves the latest committed version of the row at the time of the query. However, this can result in non-repeatable reads.
 

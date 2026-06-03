@@ -49,10 +49,10 @@ theme:
 
 plugins:
   - search
-  - with-pdf:
-      output_path: pdf/document.pdf
-      enabled_if_env: ENABLE_PDF_EXPORT
-      cover_subtitle: "ADB Labs"
+  # - with-pdf:
+    #  output_path: pdf/document.pdf
+    #  enabled_if_env: ENABLE_PDF_EXPORT
+    #  cover_subtitle: "ADB Labs"
 
 extra_javascript:
    - js/open_links.js

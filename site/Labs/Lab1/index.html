@@ -19,8 +19,11 @@
         <link rel="next" href="../Lab2/">
       
       
+        
+      
+      
       <link rel="icon" href="../../image/fmsi.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -56,7 +59,6 @@
     
       
 
-    
     
     
   </head>
@@ -387,9 +389,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -409,9 +416,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     General instructions
+  
+
     
   </span>
+  
   
 
       </a>
@@ -431,9 +443,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Lab0
+  
+
     
   </span>
+  
   
 
       </a>
@@ -462,9 +479,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Lab 1
+  
+
     
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -475,9 +497,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Lab 1
+  
+
     
   </span>
+  
   
 
       </a>
@@ -500,7 +527,9 @@
         <li class="md-nav__item">
   <a href="#understanding-sql-transactions" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding SQL Transactions
+      
+        Understanding SQL Transactions
+      
     </span>
   </a>
   
@@ -510,7 +539,9 @@
           <li class="md-nav__item">
   <a href="#transaction-control-commands-savepoint-rollback-and-commit" class="md-nav__link">
     <span class="md-ellipsis">
-      Transaction Control Commands – SAVEPOINT, ROLLBACK, and COMMIT
+      
+        Transaction Control Commands – SAVEPOINT, ROLLBACK, and COMMIT
+      
     </span>
   </a>
   
@@ -520,7 +551,9 @@
           <li class="md-nav__item">
   <a href="#begin" class="md-nav__link">
     <span class="md-ellipsis">
-      BEGIN
+      
+        BEGIN
+      
     </span>
   </a>
   
@@ -529,7 +562,9 @@
           <li class="md-nav__item">
   <a href="#savepoint" class="md-nav__link">
     <span class="md-ellipsis">
-      SAVEPOINT
+      
+        SAVEPOINT
+      
     </span>
   </a>
   
@@ -538,7 +573,9 @@
           <li class="md-nav__item">
   <a href="#rollback" class="md-nav__link">
     <span class="md-ellipsis">
-      ROLLBACK
+      
+        ROLLBACK
+      
     </span>
   </a>
   
@@ -548,7 +585,9 @@
           <li class="md-nav__item">
   <a href="#rollback-to-a-savepoint" class="md-nav__link">
     <span class="md-ellipsis">
-      Rollback to a Savepoint
+      
+        Rollback to a Savepoint
+      
     </span>
   </a>
   
@@ -557,7 +596,9 @@
           <li class="md-nav__item">
   <a href="#rollback-entire-transaction" class="md-nav__link">
     <span class="md-ellipsis">
-      Rollback Entire Transaction
+      
+        Rollback Entire Transaction
+      
     </span>
   </a>
   
@@ -571,7 +612,9 @@
           <li class="md-nav__item">
   <a href="#commit" class="md-nav__link">
     <span class="md-ellipsis">
-      COMMIT
+      
+        COMMIT
+      
     </span>
   </a>
   
@@ -580,7 +623,9 @@
           <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      
+        Summary
+      
     </span>
   </a>
   
@@ -594,7 +639,9 @@
           <li class="md-nav__item">
   <a href="#transaction-properties-and-how-sql-supports-them" class="md-nav__link">
     <span class="md-ellipsis">
-      Transaction properties and how SQL supports them
+      
+        Transaction properties and how SQL supports them
+      
     </span>
   </a>
   
@@ -603,7 +650,9 @@
           <li class="md-nav__item">
   <a href="#why-concurrency-control-is-needed" class="md-nav__link">
     <span class="md-ellipsis">
-      Why Concurrency Control is Needed
+      
+        Why Concurrency Control is Needed
+      
     </span>
   </a>
   
@@ -613,7 +662,9 @@
           <li class="md-nav__item">
   <a href="#1-lost-update-problem" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Lost update problem
+      
+        1. Lost update problem
+      
     </span>
   </a>
   
@@ -622,7 +673,9 @@
           <li class="md-nav__item">
   <a href="#2-the-temporary-update-or-dirty-read-problem" class="md-nav__link">
     <span class="md-ellipsis">
-      2. The Temporary Update (or Dirty Read) Problem
+      
+        2. The Temporary Update (or Dirty Read) Problem
+      
     </span>
   </a>
   
@@ -631,7 +684,9 @@
           <li class="md-nav__item">
   <a href="#3-the-incorrect-summary-problem" class="md-nav__link">
     <span class="md-ellipsis">
-      3. The Incorrect Summary Problem
+      
+        3. The Incorrect Summary Problem
+      
     </span>
   </a>
   
@@ -640,7 +695,9 @@
           <li class="md-nav__item">
   <a href="#transaction-t2-session-2" class="md-nav__link">
     <span class="md-ellipsis">
-      Transaction T2 (Session 2)
+      
+        Transaction T2 (Session 2)
+      
     </span>
   </a>
   
@@ -659,7 +716,9 @@
         <li class="md-nav__item">
   <a href="#assignment-simulate-the-unrepeatable-read-problem" class="md-nav__link">
     <span class="md-ellipsis">
-      Assignment: Simulate The Unrepeatable Read Problem
+      
+        Assignment: Simulate The Unrepeatable Read Problem
+      
     </span>
   </a>
   
@@ -669,7 +728,9 @@
           <li class="md-nav__item">
   <a href="#what-to-assign" class="md-nav__link">
     <span class="md-ellipsis">
-      What to assign:
+      
+        What to assign:
+      
     </span>
   </a>
   
@@ -700,9 +761,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Lab 2
+  
+
     
   </span>
+  
   
 
       </a>
@@ -722,9 +788,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Lab 3
+  
+
     
   </span>
+  
   
 
       </a>
@@ -744,9 +815,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Lab 4
+  
+
     
   </span>
+  
   
 
       </a>
@@ -764,6 +840,7 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -1176,10 +1253,11 @@ Now, SUM() uses the new value for id = 1 because the update in T1 has been commi
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "content.tooltips", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.expand", "content.code.fold", "content.code.line_numbers", "content.code.highlight", "content.code.language", "content.code.title", "content.code.wrap"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "content.tooltips", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.expand", "content.code.fold", "content.code.line_numbers", "content.code.highlight", "content.code.language", "content.code.title", "content.code.wrap"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../js/open_links.js"></script>
       
