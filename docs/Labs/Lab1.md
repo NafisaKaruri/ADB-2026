@@ -372,7 +372,7 @@ When you use aggregate functions like `SUM`, `AVG`, and `COUNT` on a table while
 
 5. A paragraph discussing what happened, and how it demonstrates the Unrepeatable Read issue.
 
+### Submission Instruction
 
 Submit your lab report in **PDF format** via email to **[advanceddb2026@gmail.com](mailto:advanceddb2026@gmail.com)**. 
-
-**Email Subject Format:** `Lab 0 - Student ID`
+**Email Subject Format:** `Lab 1 - Student ID`

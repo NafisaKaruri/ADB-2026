@@ -321,8 +321,11 @@ EXECUTE stmt USING @name_input;
   - Screenshots for each task, with a caption under each screenshot explaining what it shows.
   - A (1-2 paragraphs) report on SQL injection (as described above).
 
-!!! attention "Due Date on 29/7/2025"
+!!! attention "Due Date on 21/07/2026 11:59 PM"
 
 * <span style="color: red;"> Please review the general lab structure requirements [here](general_instructions.md) </span>
 
+### Submission Instructions
 
+Submit your lab report in **PDF format** via email to **[advanceddb2026@gmail.com](mailto:advanceddb2026@gmail.com)**. 
+**Email Subject Format:** `Lab 4 - Student ID`

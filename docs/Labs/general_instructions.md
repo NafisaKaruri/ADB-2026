@@ -10,8 +10,9 @@
     * Index Number
 * Submit your assignment as a single PDF file.
 * The PDF must include all required screenshots (code and output).
-* Submit your file as an email through "**advanceddb2026@gmail.com**" with subject
-    *Lab x - student-ID*
+
+*Submit all your lab reports in **PDF format** via email to **[advanceddb2026@gmail.com](mailto:advanceddb2026@gmail.com)**.*
+**Email Subject Format:** `Lab x - student-ID`
 
 ### Lab Title
 

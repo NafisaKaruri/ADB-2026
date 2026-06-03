@@ -33,9 +33,6 @@ Each lab builds on the previous one. Please complete them in sequence:
 4. [**Lab 3:**](Labs/Lab3.md) Database Recovery Techniques (ARIES)
 5. [**Lab 4:**](Labs/Lab4.md) Database Security Measures
 
-!!! note
-    You can download a single PDF that contains all labs. It will be updated each time a new lab is uploaded.  
-    📄 [Download](pdfs/documents.pdf)"
 
 ##  What You Should Do
 !!! info "Each lab includes an **assignment** that you are expected to complete as part of the learning process.<span style="color: red;"> Please submit the assignments on time.</span>"

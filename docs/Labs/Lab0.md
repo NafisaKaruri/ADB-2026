@@ -196,5 +196,7 @@ Take Screenshots:
 2. The output of your query
 3. Put it all on one document
 
-Submit PDF as email in **advanceddb2026@gmail.com** with subject
-*Lab 0 - student-id*
+### Submission Instructions
+
+Submit your lab report in **PDF format** via email to **[advanceddb2026@gmail.com](mailto:advanceddb2026@gmail.com)**.
+**Email Subject Format:** `Lab 0 - Student ID`

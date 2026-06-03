@@ -277,7 +277,7 @@ In this simulation, we used the error log, binary files, and multiple executions
 ## Assignment (Simulate Crash Recovery)
 
 
-!!! attention "Due Date on 19/7/2025"
+!!! attention "Due Date on 14/07/2026 11:59 PM"
 
 * <span style="color: red;"> Please review the general lab structure requirements [here](general_instructions.md) </span>
 * <span style="color: red;">You must use MySQL</span>, as this lab focuses specifically on the InnoDB storage engine.
@@ -329,3 +329,8 @@ In this simulation, we used the error log, binary files, and multiple executions
 6. Identify which transactions are undone during recovery. Support your answer using the transaction IDs observed in the InnoDB status while the transactions are active.
 
 7. Based on your study of ARIES, do you think InnoDB crash recovery is simpler or more complex? Explain your reasoning.
+
+### Submission Instructions
+
+Submit your lab report in **PDF format** via email to **[advanceddb2026@gmail.com](mailto:advanceddb2026@gmail.com)**. 
+**Email Subject Format:** `Lab 3 - Student ID`

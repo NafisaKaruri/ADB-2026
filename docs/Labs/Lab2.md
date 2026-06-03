@@ -252,7 +252,7 @@ You can clone this [repostory](https://github.com/mikeleo03/Database-Concurrency
 
 ## Assignment (Simulate Deadlock Scenario)
 
-!!! attention "Due Date on 28/6/2025"
+!!! attention "Due Date on 25/06/2026 11:59 PM"
 
 * Read pages 789–792 from the primary textbook: Fundamentals of Database Systems.
 * <span style="color: red;"> Please review the general lab structure requirements [here](general_instructions.md) </span>
@@ -279,3 +279,8 @@ You can clone this [repostory](https://github.com/mikeleo03/Database-Concurrency
 9. A snippet from the InnoDB Monitor output showing that a deadlock has been detected and resolved. to do this you should re-run step 5 agin and observe the `LATEST DETECTED DEADLOCK`.
 
 10. A brief paragraph discussing what happened and how InnoDB detects deadlock [Read this](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlock-detection.html).
+
+### Submission Instructions
+
+Submit your lab report in **PDF format** via email to **[advanceddb2026@gmail.com](mailto:advanceddb2026@gmail.com)**.
+**Email Subject Format:** `Lab 2 - Student ID`
