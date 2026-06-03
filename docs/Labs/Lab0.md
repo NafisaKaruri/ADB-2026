@@ -174,7 +174,7 @@ We will use the **Python programming language** to simulate the following:
 * Online Python Editer **[programiz](https://www.programiz.com/python-programming/online-compiler/)**
 
 ## Assignment: Install MySQL, Create a Database, and Query It
-!!! attention "Due Date on 24/5/2025"
+!!! attention "Due Date on 09/06/2026 11:59 PM"
 
 <span style="color: red;"> See the requirement about the structures of the lab **[here](general_instructions.md)**</span>
 
@@ -195,3 +195,6 @@ Take Screenshots:
 1. SQL code (on MySQL)
 2. The output of your query
 3. Put it all on one document
+
+Submit PDF as email in **advanceddb2026@gmail.com** with subject
+*Lab 0 - student-id*
