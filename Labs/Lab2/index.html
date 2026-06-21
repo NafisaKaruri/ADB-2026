@@ -1097,13 +1097,22 @@ Now it shows <code>6000</code> for <code>id=2</code>.</p>
 <p>You can clone this <a href="https://github.com/mikeleo03/Database-Concurrency-Control/tree/main">repostory</a> to explore the internal details of concurrency control simulations.</p>
 <h2 id="assignment-simulate-deadlock-scenario">Assignment (Simulate Deadlock Scenario)</h2>
 <div class="admonition attention">
-<p class="admonition-title">Due Date on 25/06/2026 11:59 PM</p>
+<p class="admonition-title">Due Date on 28/06/2026 11:59 PM</p>
 </div>
-<ul>
-<li>Read pages 789–792 from the primary textbook: Fundamentals of Database Systems.</li>
-<li><span style="color: red;"> Please review the general lab structure requirements <a href="../general_instructions/">here</a> </span></li>
-<li><span style="color: red;">You must use MySQL</span>, as this lab focuses specifically on the InnoDB storage engine.</li>
-</ul>
+<p>In this assignment, you will practically simulate and analyze a Concurrency Deadlock scenario using MySQL with the InnoDB storage engine. This hands-on lab will help you understand how concurrent database transactions can block each other and how the storage engine automatically detects and resolves these conflicts.</p>
+<p>Scenario Background:
+Consider a travel booking platform where users can book flights and hotel rooms simultaneosly. A deadlock occurs when:</p>
+<ol>
+<li>
+<p><strong>Transaction 1 (Passenger A)</strong>: Updates a flight seat and waits to update a hotel room</p>
+</li>
+<li>
+<p><strong>Transaction 2 (Passenger B)</strong>: Updates the same hotel room and waits to update the same flight seat.</p>
+</li>
+</ol>
+<p>Read pages 789–792 from the primary textbook: Fundamentals of Database Systems.</p>
+<p><span style="color: red;"> Please review the general lab structure requirements <a href="../general_instructions/">here</a> </span></p>
+<p><span style="color: red;">You must use MySQL</span>, as this lab focuses specifically on the InnoDB storage engine.</p>
 <h3 id="what-to-assign">What to assign:</h3>
 <ol>
 <li>
