@@ -252,11 +252,22 @@ You can clone this [repostory](https://github.com/mikeleo03/Database-Concurrency
 
 ## Assignment (Simulate Deadlock Scenario)
 
-!!! attention "Due Date on 25/06/2026 11:59 PM"
+!!! attention "Due Date on 28/06/2026 11:59 PM"
 
-* Read pages 789–792 from the primary textbook: Fundamentals of Database Systems.
-* <span style="color: red;"> Please review the general lab structure requirements [here](general_instructions.md) </span>
-* <span style="color: red;">You must use MySQL</span>, as this lab focuses specifically on the InnoDB storage engine.
+In this assignment, you will practically simulate and analyze a Concurrency Deadlock scenario using MySQL with the InnoDB storage engine. This hands-on lab will help you understand how concurrent database transactions can block each other and how the storage engine automatically detects and resolves these conflicts.
+
+Scenario Background:
+Consider a travel booking platform where users can book flights and hotel rooms simultaneosly. A deadlock occurs when:
+
+1. **Transaction 1 (Passenger A)**: Updates a flight seat and waits to update a hotel room
+
+2. **Transaction 2 (Passenger B)**: Updates the same hotel room and waits to update the same flight seat.
+
+Read pages 789–792 from the primary textbook: Fundamentals of Database Systems.
+
+<span style="color: red;"> Please review the general lab structure requirements [here](general_instructions.md) </span>
+
+<span style="color: red;">You must use MySQL</span>, as this lab focuses specifically on the InnoDB storage engine.
 
 ### What to assign: 
 
