@@ -310,7 +310,7 @@ In this simulation, we used the error log, binary files, and multiple executions
     T3 (Starts after Checkpoint, commits) :done, t3, 10:05, 2m
     ```
 
-3. Identify:
+3. Identify the following from the MySQL error log and `SHOW ENGINE INNOB STATUS`:
 
     * The LSN of the last checkpoint created by InnoDB.
 
@@ -332,5 +332,5 @@ In this simulation, we used the error log, binary files, and multiple executions
 
 ### Submission Instructions
 
-Submit your lab report in **PDF format** via email to **[advanceddb2026@gmail.com](mailto:advanceddb2026@gmail.com)**. 
+Submit your lab report in **PDF format** in Moodle and via email to **[advanceddb2026@gmail.com](mailto:advanceddb2026@gmail.com)**. 
 **Email Subject Format:** `Lab 3 - Student ID`
