@@ -277,7 +277,7 @@ In this simulation, we used the error log, binary files, and multiple executions
 ## Assignment (Simulate Crash Recovery)
 
 
-!!! attention "Due Date on 14/07/2026 11:59 PM"
+!!! attention "Due Date on 10/07/2026 11:59 PM"
 
 * <span style="color: red;"> Please review the general lab structure requirements [here](general_instructions.md) </span>
 * <span style="color: red;">You must use MySQL</span>, as this lab focuses specifically on the InnoDB storage engine.
@@ -332,5 +332,5 @@ In this simulation, we used the error log, binary files, and multiple executions
 
 ### Submission Instructions
 
-Submit your lab report in **PDF format** in Moodle and via email to **[advanceddb2026@gmail.com](mailto:advanceddb2026@gmail.com)**. 
+Submit your lab report in **PDF format** in M
 **Email Subject Format:** `Lab 3 - Student ID`
